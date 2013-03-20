@@ -3,11 +3,17 @@ Bootstrap is a toolkit from Twitter designed to kickstart development of webapps
 
 twitter-bootstrap-rails project integrates Bootstrap CSS toolkit for Rails 3.1 Asset Pipeline (Rails 3.2 supported)
 
-[![Build Status](https://secure.travis-ci.org/seyhunak/twitter-bootstrap-rails.png)](http://travis-ci.org/seyhunak/twitter-bootstrap-rails)
-[![Dependency Status](https://gemnasium.com/seyhunak/twitter-bootstrap-rails.png)](https://gemnasium.com/seyhunak/twitter-bootstrap-rails)
-[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/seyhunak/twitter-bootstrap-rails)
-[![Still Maintained](https://a248.e.akamai.net/camo.github.com/9c977523be7fce95c026a1b7d9673903f82e59cd/687474703a2f2f7374696c6c6d61696e7461696e65642e636f6d2f7374696c6c6d61696e7461696e65642f7374696c6c6d61696e7461696e65642e706e67)](http://stillmaintained.com/seyhunak/twitter-bootstrap-rails)
+[![Gem Version](https://badge.fury.io/rb/twitter-bootstrap-rails.png)][gem]
+[![Build Status](https://secure.travis-ci.org/seyhunak/twitter-bootstrap-rails.png?branch=master)][travis]
+[![Dependency Status](https://gemnasium.com/seyhunak/twitter-bootstrap-rails.png?travis)][gemnasium]
+[![Code Climate](https://codeclimate.com/github/seyhunak/twitter-bootstrap-rails.png)][codeclimate]
+[![Coverage Status](https://coveralls.io/repos/seyhunak/twitter-bootstrap-rails/badge.png?branch=master)][coveralls]
 
+[gem]: https://rubygems.org/gems/twitter-bootstrap-rails
+[travis]: http://travis-ci.org/seyhunak/twitter-bootstrap-rails
+[gemnasium]: https://gemnasium.com/seyhunak/twitter-bootstrap-rails
+[codeclimate]: https://codeclimate.com/github/seyhunak/twitter-bootstrap-rails
+[coveralls]: https://coveralls.io/r/seyhunak/twitter-bootstrap-rails
 
 ## Screencasts
 #### Installing twitter-bootstrap-rails, generators, usage and more
@@ -164,6 +170,17 @@ styles inheriting Bootstrap's mixins, you can do so inside bootstrap_and_overrid
 @linkColor: #ff0000;
 ```
 
+### Icons
+
+By default, this gem overrides standard Bootstraps's Glyphicons with Font Awesome (http://fortawesome.github.com/Font-Awesome/).
+If you would like to restore the default Glyphicons, inside the _bootstrap_and_overrides.css.less_ remove the FontAwesome declaration and uncomment the line:
+
+```css
+// Font Awesome
+// @import "fontawesome";
+// Glyphicons
+@import "twitter/bootstrap/sprites.less";
+```
 
 ## Using Javascripts
 
@@ -207,9 +224,12 @@ jQuery ->
 ## Using Helpers
 
 ### Flash helper
-Add flash helper <%= bootstrap_flash %> to your layout (built-in with layout generator)
+Add flash helper `<%= bootstrap_flash %>` to your layout (built-in with layout generator)
 
 ### Breadcrumbs Helpers
+
+Add breadcrumbs helper `<%= render_breadcrumbs %>` to your layout.
+
 ```ruby
 class ApplicationController
   add_breadcrumb :index, :root_path
@@ -242,8 +262,8 @@ en:
       index: "Examples"
       show: "Example"
 ```
-
-Add breadcrumbs helper <%= render_breadcrumbs %> to your layout
+NOTE: If you are using Devise in your project, you must have a devise locale file
+for handling flash messages, even if those messages are blank. See https://github.com/plataformatec/devise/wiki/I18n
 
 ## Changelog
 <ul>
@@ -289,11 +309,19 @@ Add breadcrumbs helper <%= render_breadcrumbs %> to your layout
   <li>Added static stylesheets support</li>
   <li>Released gem v.2.1.8 and updated to Twitter Bootstrap 2.2.2</li>
   <li>Released gem v.2.1.9</li>
+  <li>Released gem v.2.2.0 (Font Awesome 3)</li>
+  <li>Released gem v.2.2.1 (minor fixes and updates)</li>
+  <li>Released gem v.2.2.2 (Bootstrap 2.3.0)</li>
+  <li>Released gem v.2.2.3 (Minor fixes)</li>
+  <li>Released gem v.2.2.4 (Minor fixes)</li>
+  <li>Released gem v.2.2.5 (Bootstrap 2.3.1)</li>
+
 </ul>
 
 
 ## Contributors & Patches & Forks
 <ul>
+  <li>Ben Lovell</li>
   <li>Daniel Morris</li>
   <li>Bradly Feeley</li>
   <li>Guilherme Moreira</li>
